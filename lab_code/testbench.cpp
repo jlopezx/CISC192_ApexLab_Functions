@@ -4,10 +4,23 @@
 //
 #include <iostream>
 #include <fstream>
-#include <cassert>
 #include "apex_code.h"
 
 using namespace std;
+
+// Use for everything other than doubles/floats
+template<typename T> bool test(T expected, T result)
+{
+    if(expected != result)
+    {
+        cout << "FAILED: Expected " << expected << ", received " << result << ".\n";
+    }
+    else {
+        cout << "PASS\n";
+    }
+
+    return expected == result;
+}
 
 int main()
 {
@@ -16,13 +29,13 @@ int main()
     // in the second string.
 
     // Test upperCharAnd
-    assert(upperCharAnd('x', 'X') == false);
-    assert(upperCharAnd('A', 'X') == true);
-    assert(upperCharAnd('a', 'x') == false);
+    (void)test(false, upperCharAnd('x', 'X'));
+    (void)test(true, upperCharAnd('A', 'X'));
+    (void)test(false, upperCharAnd('a', 'x'));
 
     // Test getNumberTiles
-    assert(getNumberTiles(1.0, 1.0, 8) == 4);
-    assert(getNumberTiles(10.5, 1.42, 8) == 48);
+    (void)test(4, getNumberTiles(1.0, 1.0, 8));
+    (void)test(48, getNumberTiles(10.5, 1.42, 8));
 
     return 0;
 }
