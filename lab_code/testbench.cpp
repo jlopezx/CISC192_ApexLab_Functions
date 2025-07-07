@@ -80,12 +80,17 @@ int main() {
   (void)test(false, upperCharAnd('x', 'X'));
   (void)test(true, upperCharAnd('A', 'X'));
   (void)test(false, upperCharAnd('a', 'x'));
+  (void)test(false, upperCharAnd('E', 'g'));
+  (void)test(true, upperCharAnd('Z', 'K'));
   endTests("upperCharAnd");
 
   // Test getNumberTiles
   startTests("getNumberTiles");
+  (void)test(1, getNumberTiles(1.0, 1.0, 12));
   (void)test(4, getNumberTiles(1.0, 1.0, 8));
+  (void)test(16, getNumberTiles(1.0, 1.0, 3));
   (void)test(48, getNumberTiles(10.5, 1.42, 8));
+  (void)test(22, getNumberTiles(10.5, 1.42, 12));
   endTests("getNumberTiles");
 
   endAllTests();
