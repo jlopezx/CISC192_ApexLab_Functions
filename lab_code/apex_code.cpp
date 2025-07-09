@@ -45,6 +45,7 @@ int getNumberTiles(double heightInFt, double widthInFt, int tileSizeInInches) {
 }
 
 bool upperCharAnd(char char1, char char2) {
-	//
+	// This function uses a ternary operation that checks if char1 and char2 are uppercase,
+	// if so, returns true, otherwise it returns false.
 	return isupper(char1) && isupper(char2) ? true : false;
 }
